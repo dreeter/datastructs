@@ -23,5 +23,5 @@ Node *Node::next()
 
 void Node::print()
 {
-    std::cout << "Node is " + std::to_string(this->data) << std::endl;
+    std::cout << "Node: " + std::to_string(this->data) << std::endl;
 }

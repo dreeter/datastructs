@@ -13,7 +13,8 @@ int main()
     my_list.push(30);
     my_list.push(40);
     my_list.push(50);
-    my_list.deleteNode(0);
-    my_list.deleteNode(2);
+    my_list.insertAfter(0, 33);
+    my_list.insertAfter(5, 77);
+
     my_list.print();
 }

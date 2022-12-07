@@ -14,13 +14,17 @@ public:
 
     Node *push(int data);
 
-    Node *pop();
+    Node *insertAfter(int position, int data);
 
-    Node *shift();
+    int pop();
+
+    int shift();
 
     int size();
 
     bool deleteNode(int position);
+
+    Node *reverse();
 
     void print();
 };
