@@ -210,6 +210,23 @@ bool SinglyLinkedList::deleteNode(int position)
 
 Node *SinglyLinkedList::reverse()
 {
+    if (this->size() == 1)
+        return this->head;
+
+    Node *previous = nullptr;
+    Node *currentNode = head;
+    Node *nextNode = nullptr;
+
+    this->tail = currentNode;
+    while (currentNode->nextNode != nullptr)
+    {
+        nextNode = currentNode->nextNode;
+        currentNode->nextNode = previous;
+        previous = currentNode;
+        currentNode = nextNode;
+    }
+    currentNode->nextNode = previous;
+    this->head = currentNode;
 
     return this->head;
 }
