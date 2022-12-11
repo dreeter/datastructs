@@ -1,30 +1,68 @@
-#include "Node.hpp"
+#include <utility>
 
-class SinglyLinkedList
+namespace ssl
 {
-private:
-    Node *head;
-    Node *tail;
-    int length;
 
-public:
-    SinglyLinkedList();
+    enum ERRORCODE
+    {
+        VALID = 0,
+        INVALID = -1
+    };
 
-    Node *unshift(int data);
+    class Node
+    {
+    public:
+        int data;
 
-    Node *push(int data);
+        Node *nextNode;
 
-    Node *insertAfter(int position, int data);
+        Node();
 
-    int pop();
+        Node(int data);
 
-    int shift();
+        void print();
+    };
 
-    int size();
+    class SinglyLinkedList
+    {
+    private:
+        Node *head;
+        Node *tail;
+        int length;
+        void deleteNodes();
 
-    bool deleteNode(int position);
+    public:
+        SinglyLinkedList();
 
-    Node *reverse();
+        SinglyLinkedList(SinglyLinkedList &source);
 
-    void print();
+        SinglyLinkedList &operator=(const SinglyLinkedList &source);
+
+        ~SinglyLinkedList();
+
+        SinglyLinkedList *unshift(const int &data);
+
+        SinglyLinkedList *push(const int &data);
+
+        std::pair<ERRORCODE, SinglyLinkedList *> insertAfter(const int &position, const int &data);
+
+        std::pair<ERRORCODE, int> pop();
+
+        std::pair<ERRORCODE, int> shift();
+
+        int size() const;
+
+        int find(const int &data) const;
+
+        std::pair<ERRORCODE, int> get(const int &position);
+
+        std::pair<ERRORCODE, SinglyLinkedList *> replace(const int &position, const int &data);
+
+        std::pair<ERRORCODE, SinglyLinkedList *> deleteNode(const int &position);
+
+        SinglyLinkedList *reverse();
+
+        void print() const;
+    };
+
 };
