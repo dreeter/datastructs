@@ -42,7 +42,9 @@ namespace ssl
         }
 
     public:
-        SinglyLinkedList() : head(nullptr), tail(nullptr), length(0) {}
+        SinglyLinkedList() : head(nullptr), tail(nullptr), length(0)
+        {
+        }
 
         SinglyLinkedList(SinglyLinkedList &source) : head(nullptr), tail(nullptr), length(0)
         {
